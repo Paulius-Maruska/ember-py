@@ -1,0 +1,18 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# python files
+*.py    text
+
+# html and templates
+*.html  text
+
+# stylesheets and javascripts
+*.css   text
+*.js    text
+
+# images
+*.ico   binary
+*.png   binary
+*.gif   binary
+*.jpg   binary
