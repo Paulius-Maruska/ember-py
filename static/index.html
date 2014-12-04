@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <title>ember-py - ember.js playground with python backend.</title>
+
+  <script src="/s/lib/jquery-1.11.1.js"></script>
+  <script src="/s/lib/handlebars-v2.0.0.js"></script>
+  <script src="/s/lib/ember.js"></script>
+  <script src="/s/lib/ember-data.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:700|Merriweather' rel='stylesheet' type='text/css'>
+
+  <link id="favicon" href="/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/s/style.css" rel="stylesheet">
+  <script src="/s/app.js"></script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <script type="text/x-handlebars">
+
+    {{outlet}}
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contacts">
+
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="6">Offset: {{offset}}, Limit: {{limit}}, Total: {{total}}</th>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button {{action "prev" on="click"}} {{bind-attr disabled=noPrev}}>prev</button>
+                        <button {{action "next" on="click"}} {{bind-attr disabled=noNext}}>next</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Nick name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-Mail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>#</td>
+                    <td>{{input type="text" value=new_contact.nick_name}}</td>
+                    <td>{{input type="text" value=new_contact.first_name}}</td>
+                    <td>{{input type="text" value=new_contact.last_name}}</td>
+                    <td>{{input type="text" value=new_contact.email}}</td>
+                    <td>
+                        <button {{action "clear" on="click"}}>clear</button>
+                        <button {{action "create" on="click"}}>create</button>
+                    </td>
+                </tr>
+            </tfoot>
+            {{#each item in model}}
+            <tbody>
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.nick_name}}</td>
+                    <td>{{item.first_name}}</td>
+                    <td>{{item.last_name}}</td>
+                    <td>{{item.email}}</td>
+                    <td><button {{action "remove" item on="click"}}>remove</button></td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+
+    </script>
+</div>
+
+</body>
+</html>

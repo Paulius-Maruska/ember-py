@@ -1,0 +1,8 @@
+table, th, td {
+  border: 1px solid black;
+  margin: 1px;
+}
+
+button[disabled] {
+  colot: gray;
+}
